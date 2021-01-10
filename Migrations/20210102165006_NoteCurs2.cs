@@ -2,7 +2,7 @@
 
 namespace Labont_Dumitru_Proiect.Migrations
 {
-    public partial class Update1 : Migration
+    public partial class NoteCurs2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

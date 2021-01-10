@@ -20,11 +20,15 @@ namespace Labont_Dumitru_Proiect.Pages.Note
         }
 
         public IList<Nota> Nota { get;set; }
+        
 
         public async Task OnGetAsync()
         {
             Nota = await _context.Nota
+                .Include(n => n.Curs)
+                .Include(n => n.Curs.Profesor)
                 .Include(n => n.Student).ToListAsync();
+               
         }
     }
 }

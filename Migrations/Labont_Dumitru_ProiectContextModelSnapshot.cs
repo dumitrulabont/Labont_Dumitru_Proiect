@@ -46,6 +46,9 @@ namespace Labont_Dumitru_Proiect.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("CursID")
+                        .HasColumnType("int");
+
                     b.Property<int>("StudentID")
                         .HasColumnType("int");
 
@@ -53,6 +56,8 @@ namespace Labont_Dumitru_Proiect.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("CursID");
 
                     b.HasIndex("StudentID");
 
@@ -93,9 +98,6 @@ namespace Labont_Dumitru_Proiect.Migrations
                     b.Property<string>("Nume")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Prenume")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("TipScolarizare")
                         .HasColumnType("int");
 
@@ -115,6 +117,12 @@ namespace Labont_Dumitru_Proiect.Migrations
 
             modelBuilder.Entity("Labont_Dumitru_Proiect.Models.Nota", b =>
                 {
+                    b.HasOne("Labont_Dumitru_Proiect.Models.Curs", "Curs")
+                        .WithMany("Note")
+                        .HasForeignKey("CursID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Labont_Dumitru_Proiect.Models.Student", "Student")
                         .WithMany("Note")
                         .HasForeignKey("StudentID")

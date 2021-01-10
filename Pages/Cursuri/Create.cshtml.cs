@@ -21,7 +21,13 @@ namespace Labont_Dumitru_Proiect.Pages.Cursuri
 
         public IActionResult OnGet()
         {
-        ViewData["ProfesorID"] = new SelectList(_context.Profesor, "ID", "ID");
+            var interogare = from prf in _context.Profesor
+                             select new
+                             {
+                                 ID = prf.ID,
+                                 NumeComplet = string.Format("{0} {1}", prf.Nume, prf.Prenume)
+                             };
+            ViewData["ProfesorID"] = new SelectList(interogare, "ID", "NumeComplet");
             return Page();
         }
 

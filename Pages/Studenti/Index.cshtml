@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "/"
 @model Labont_Dumitru_Proiect.Pages.Catalog_Online.IndexModel
 
 @{
@@ -17,9 +17,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Student[0].Nume)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Student[0].Prenume)
-            </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.Student[0].DataNasterii)
             </th>
@@ -35,9 +33,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Nume)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prenume)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.DataNasterii)
             </td>

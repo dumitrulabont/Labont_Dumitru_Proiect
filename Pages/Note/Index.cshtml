@@ -17,7 +17,13 @@
                 @Html.DisplayNameFor(model => model.Nota[0].ValoareNota)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Nota[0].Student)
+                @Html.DisplayNameFor(model => model.Nota[0].Student.Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nota[0].Curs.Denumire) Curs
+            </th>
+            <th>
+                 Profesor
             </th>
             <th></th>
         </tr>
@@ -29,7 +35,14 @@
                 @Html.DisplayFor(modelItem => item.ValoareNota)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Student.ID)
+                @Html.DisplayFor(modelItem => item.Student.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curs.Denumire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curs.Profesor.Nume)
+                @Html.DisplayFor(modelItem => item.Curs.Profesor.Prenume)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

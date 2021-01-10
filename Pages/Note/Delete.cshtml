@@ -22,8 +22,21 @@
             @Html.DisplayNameFor(model => model.Nota.Student)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Nota.Student.ID)
+            @Html.DisplayFor(model => model.Nota.Student.Nume)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nota.Curs)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nota.Curs.Denumire)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nota.Curs.Profesor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nota.Curs.Profesor.Nume) @Html.DisplayFor(model => model.Nota.Curs.Profesor.Prenume)
+        </dd>
+
     </dl>
     
     <form method="post">

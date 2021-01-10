@@ -21,7 +21,19 @@ namespace Labont_Dumitru_Proiect.Pages.Note
 
         public IActionResult OnGet()
         {
-        ViewData["StudentID"] = new SelectList(_context.Student, "ID", "ID");
+            //var curs = _context.Curs;
+            //var profesor = _context.Profesor;
+            var interograre = from cr in _context.Curs
+                              join pr in _context.Profesor
+                              on cr.ProfesorID equals pr.ID
+                              select new
+                              {
+                                  ID = cr.ID,
+                                  materie = string.Format("{0} -- {1} {2}",cr.Denumire,pr.Nume,pr.Prenume)
+                              };
+        ViewData["StudentID"] = new SelectList(_context.Student, "ID", "Nume");
+        ViewData["CursID"] = new SelectList(interograre, "ID", "materie");
+        
             return Page();
         }
 

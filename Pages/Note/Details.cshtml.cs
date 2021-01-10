@@ -29,6 +29,8 @@ namespace Labont_Dumitru_Proiect.Pages.Note
             }
 
             Nota = await _context.Nota
+                .Include(n => n.Curs)
+                .Include(n => n.Curs.Profesor)
                 .Include(n => n.Student).FirstOrDefaultAsync(m => m.ID == id);
 
             if (Nota == null)
